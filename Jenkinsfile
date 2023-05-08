@@ -7,7 +7,7 @@ pipeline {
 
          steps {
 
-             sh "docker pull neopane1/finalone"
+             bat "docker pull neopane1/finalone"
          }
 
       }
@@ -17,7 +17,7 @@ pipeline {
 
          steps {
 
-             sh "docker-compose up -d hub chrome firefox"
+             bat "docker-compose up -d hub chrome firefox"
          }
 
       }
@@ -26,7 +26,7 @@ pipeline {
 
          steps {
 
-             sh "docker-compose up search book"
+             bat "docker-compose up search book"
          }
 
       }
@@ -35,7 +35,7 @@ pipeline {
         always {
 
             archiveArtifacts artifacts:'output/**'
-            sh "docker-compose down"
+            bat "docker-compose down"
         }
 
     }
